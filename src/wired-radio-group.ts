@@ -1,4 +1,4 @@
-import { fireEvent } from './wired-base';
+import { fireEvent } from './wired-base.js';
 import { css, TemplateResult, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 

@@ -1,5 +1,5 @@
-import { WiredBase, BaseCSS, Point } from './wired-base';
-import { rectangle, line, hachureFill, } from './wired-lib';
+import { WiredBase, BaseCSS, Point } from './wired-base.js';
+import { rectangle, line, hachureFill, } from './wired-lib.js';
 import { css, TemplateResult, html, PropertyValues } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 

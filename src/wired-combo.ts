@@ -1,7 +1,7 @@
 import { css, TemplateResult, html, PropertyValues, LitElement } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import { rectangle, polygon } from './wired-lib';
-import { randomSeed, fireEvent } from './wired-base';
+import { rectangle, polygon } from './wired-lib.js';
+import { randomSeed, fireEvent } from './wired-base.js';
 
 import './wired-card';
 import './wired-item';

@@ -1,5 +1,5 @@
-import { rectangle, line, ellipse } from './wired-lib';
-import { randomSeed, fireEvent } from './wired-base';
+import { rectangle, line, ellipse } from './wired-lib.js';
+import { randomSeed, fireEvent } from './wired-base.js';
 import { css, TemplateResult, html, LitElement, PropertyValues } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 

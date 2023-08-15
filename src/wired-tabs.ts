@@ -1,4 +1,4 @@
-import { BaseCSS } from './wired-base';
+import { BaseCSS } from './wired-base.js';
 import { css, TemplateResult, html, CSSResultArray, LitElement } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 

@@ -1,6 +1,6 @@
 import { css, TemplateResult, html, LitElement } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import { WiredCard } from './wired-card';
+import { WiredCard } from './wired-card.js';
 
 @customElement('wired-dialog')
 export class WiredDialog extends LitElement {
