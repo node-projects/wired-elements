@@ -1,3 +1,7 @@
+# Info
+
+This is a fork of the wired repo to fix es6 imports
+
 # wired-elements 👉 [wiredjs.com](https://wiredjs.com)
 Wired Elements is a series of basic UI Elements that have a hand drawn look. These can be used for wireframes, mockups, or just the fun hand-drawn look. 
 
