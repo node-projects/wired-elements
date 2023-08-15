@@ -1,5 +1,5 @@
 import { Point } from '@node-projects/roughjs/bin/geometry.js';
-import { ResolvedOptions, OpSet, Op } from '@node-projects/roughjs/bin/core';
+import { ResolvedOptions, OpSet, Op } from '@node-projects/roughjs/bin/core.js';
 import {
   line as roughLine,
   rectangle as roughRectangle,
@@ -8,9 +8,9 @@ import {
   arc as roughArc,
   doubleLineFillOps,
   generateEllipseParams
-} from '@node-projects/roughjs/bin/renderer';
-import { ZigZagFiller } from '@node-projects/roughjs/bin/fillers/zigzag-filler';
-import { RenderHelper } from '@node-projects/roughjs/bin/fillers/filler-interface';
+} from '@node-projects/roughjs/bin/renderer.js';
+import { ZigZagFiller } from '@node-projects/roughjs/bin/fillers/zigzag-filler.js';
+import { RenderHelper } from '@node-projects/roughjs/bin/fillers/filler-interface.js';
 
 type Params = { [name: string]: string };
 

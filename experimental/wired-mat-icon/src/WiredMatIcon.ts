@@ -1,5 +1,5 @@
 import { property, LitElement, html, TemplateResult, css } from 'lit-element';
-import 'wired-icon';
+import 'wired-icon.js';
 import { iconsetLoader } from './iconset';
 import { ICON_SET } from './iconset/iconset-full';
 

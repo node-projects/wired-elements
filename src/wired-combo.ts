@@ -3,8 +3,8 @@ import { customElement, property, query } from 'lit/decorators.js';
 import { rectangle, polygon } from './wired-lib.js';
 import { randomSeed, fireEvent } from './wired-base.js';
 
-import './wired-card';
-import './wired-item';
+import './wired-card.js';
+import './wired-item.js';
 
 interface WiredComboItem extends HTMLElement {
   value: string;
