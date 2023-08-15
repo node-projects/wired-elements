@@ -1,5 +1,5 @@
-import { Point } from 'roughjs/bin/geometry.js';
-import { ResolvedOptions, OpSet, Op } from 'roughjs/bin/core';
+import { Point } from '@node-projects/roughjs/bin/geometry.js';
+import { ResolvedOptions, OpSet, Op } from '@node-projects/roughjs/bin/core';
 import {
   line as roughLine,
   rectangle as roughRectangle,
@@ -8,9 +8,9 @@ import {
   arc as roughArc,
   doubleLineFillOps,
   generateEllipseParams
-} from 'roughjs/bin/renderer';
-import { ZigZagFiller } from 'roughjs/bin/fillers/zigzag-filler';
-import { RenderHelper } from 'roughjs/bin/fillers/filler-interface';
+} from '@node-projects/roughjs/bin/renderer';
+import { ZigZagFiller } from '@node-projects/roughjs/bin/fillers/zigzag-filler';
+import { RenderHelper } from '@node-projects/roughjs/bin/fillers/filler-interface';
 
 type Params = { [name: string]: string };
 
@@ -46,6 +46,7 @@ function options(seed: number): ResolvedOptions {
     dashOffset: -1,
     dashGap: -1,
     zigzagOffset: 0,
+    //@ts-ignore
     combineNestedSvgPaths: false,
     disableMultiStroke: false,
     disableMultiStrokeFill: false,
