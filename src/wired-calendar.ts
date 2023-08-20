@@ -24,6 +24,12 @@ const DAY = HOUR * 24;
 
 const TABLE_PADDING = 8; // pixels
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-calendar': WiredCalendar;   
+ } 
+}
+
 @customElement('wired-calendar')
 export class WiredCalendar extends LitElement {
   @property({ type: Number }) elevation = 3;

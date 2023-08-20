@@ -3,6 +3,12 @@ import { ellipse, arc } from './wired-lib.js';
 import { css, TemplateResult, html, CSSResultArray } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-progress-ring': WiredProgressRing;   
+ } 
+}
+
 @customElement('wired-progress-ring')
 export class WiredProgressRing extends WiredBase {
   @property({ type: Number }) value = 0;

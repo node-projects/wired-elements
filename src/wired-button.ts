@@ -3,6 +3,12 @@ import { rectangle, line } from './wired-lib.js';
 import { css, TemplateResult, html, CSSResultArray } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-button': WiredButton;   
+ } 
+}
+
 @customElement('wired-button')
 export class WiredButton extends WiredBase {
   @property({ type: Number }) elevation = 1;

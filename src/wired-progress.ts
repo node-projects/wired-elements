@@ -3,6 +3,12 @@ import { rectangle, hachureFill } from './wired-lib.js';
 import { css, TemplateResult, html, CSSResultArray } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-progress': WiredProgress;   
+ } 
+}
+
 @customElement('wired-progress')
 export class WiredProgress extends WiredBase {
   @property({ type: Number }) value = 0;

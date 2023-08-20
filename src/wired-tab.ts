@@ -5,6 +5,12 @@ import { customElement, property } from 'lit/decorators.js';
 
 import './wired-item.js';
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-tab': WiredTab;   
+ } 
+}
+
 @customElement('wired-tab')
 export class WiredTab extends WiredBase {
   @property({ type: String }) name = '';

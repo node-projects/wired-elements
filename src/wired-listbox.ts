@@ -13,6 +13,12 @@ interface ListboxValue {
   text: string;
 }
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-listbox': WiredListbox;   
+ } 
+}
+
 @customElement('wired-listbox')
 export class WiredListbox extends WiredBase {
   @property({ type: Object }) value?: ListboxValue;

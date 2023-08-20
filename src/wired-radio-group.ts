@@ -7,6 +7,12 @@ interface RadioItem extends HTMLElement {
   checked: boolean;
 }
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-radio-group': WiredRadioGroup;   
+ } 
+}
+
 @customElement('wired-radio-group')
 export class WiredRadioGroup extends LitElement {
   @property({ type: String }) selected?: string;

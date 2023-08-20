@@ -16,6 +16,12 @@ interface ComboValue {
   text: string;
 }
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-combo': WiredCombo;   
+ } 
+}
+
 @customElement('wired-combo')
 export class WiredCombo extends LitElement {
   @property({ type: Object }) value?: ComboValue;

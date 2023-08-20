@@ -2,6 +2,12 @@ import { css, TemplateResult, html, LitElement } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { WiredCard } from './wired-card.js';
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-dialog': WiredDialog;   
+ } 
+}
+
 @customElement('wired-dialog')
 export class WiredDialog extends LitElement {
   @property({ type: Number }) elevation = 5;

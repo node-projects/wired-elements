@@ -3,6 +3,12 @@ import { rectangle, line, svgNode } from './wired-lib.js';
 import { css, TemplateResult, html } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-checkbox': WiredCheckbox;   
+ } 
+}
+
 @customElement('wired-checkbox')
 export class WiredCheckbox extends WiredBase {
   @property({ type: Boolean }) checked = false;

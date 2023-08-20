@@ -3,6 +3,12 @@ import { hachureEllipseFill } from './wired-lib.js';
 import { css, TemplateResult, html, CSSResultArray } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-fab': WiredFab;   
+ } 
+}
+
 @customElement('wired-fab')
 export class WiredFab extends WiredBase {
   @property({ type: Boolean, reflect: true }) disabled = false;

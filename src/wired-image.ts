@@ -5,6 +5,12 @@ import { customElement, property } from 'lit/decorators.js';
 
 const EMPTY_IMAGE = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-image': WiredImage;   
+ } 
+}
+
 @customElement('wired-image')
 export class WiredImage extends WiredBase {
   @property({ type: Number }) elevation = 1;

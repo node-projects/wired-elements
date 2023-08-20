@@ -3,6 +3,12 @@ import { ellipse, hachureEllipseFill } from './wired-lib.js';
 import { css, TemplateResult, html, CSSResultArray } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-spinner': WiredSpinner;   
+ } 
+}
+
 @customElement('wired-spinner')
 export class WiredSpinner extends WiredBase {
   @property({ type: Boolean }) spinning = false;

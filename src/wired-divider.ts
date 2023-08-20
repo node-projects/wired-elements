@@ -3,6 +3,12 @@ import { line } from './wired-lib.js';
 import { css, TemplateResult, html, CSSResultArray } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-divider': WiredDivider;   
+ } 
+}
+
 @customElement('wired-divider')
 export class WiredDivider extends WiredBase {
   @property({ type: Number }) elevation = 1;

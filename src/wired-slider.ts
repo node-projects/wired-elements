@@ -3,6 +3,12 @@ import { line, ellipse } from './wired-lib.js';
 import { css, TemplateResult, html, CSSResultArray } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-slider': WiredSlider;   
+ } 
+}
+
 @customElement('wired-slider')
 export class WiredSlider extends WiredBase {
   @property({ type: Number }) min = 0;

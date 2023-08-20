@@ -8,6 +8,12 @@ interface WiredTabItem extends HTMLElement {
   wiredRender(force?: boolean): void;
 }
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-tabs': WiredTabs;   
+ } 
+}
+
 @customElement('wired-tabs')
 export class WiredTabs extends LitElement {
   @property({ type: String }) selected?: string;

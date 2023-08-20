@@ -3,6 +3,12 @@ import { css, TemplateResult, html, CSSResultArray } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { hachureFill } from './wired-lib.js';
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-item': WiredItem;   
+ } 
+}
+
 @customElement('wired-item')
 export class WiredItem extends WiredBase {
   @property() value = '';

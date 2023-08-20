@@ -3,6 +3,12 @@ import { rectangle, line, hachureFill, } from './wired-lib.js';
 import { css, TemplateResult, html, PropertyValues } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-card': WiredCard;   
+ } 
+}
+
 @customElement('wired-card')
 export class WiredCard extends WiredBase {
   @property({ type: Number }) elevation = 1;

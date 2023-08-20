@@ -6,6 +6,12 @@ import { WiredProgress } from './wired-progress.js';
 import { WiredSlider } from './wired-slider.js';
 import './wired-icon-button.js';
 
+declare global {   
+  interface HTMLElementTagNameMap {
+   'wired-video': WiredVideo;   
+ } 
+}
+
 @customElement('wired-video')
 export class WiredVideo extends WiredBase {
   @property({ type: String }) src = '';
