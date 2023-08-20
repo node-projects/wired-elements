@@ -1,6 +1,6 @@
 # Info
 
-This is a fork of the wired repo to fix es6 imports
+This is a fork of the wired repo to fix es6 imports, also updates all Librarys and makes the Library usable in webcomponents Designer.
 
 # wired-elements 👉 [wiredjs.com](https://wiredjs.com)
 Wired Elements is a series of basic UI Elements that have a hand drawn look. These can be used for wireframes, mockups, or just the fun hand-drawn look. 
@@ -10,6 +10,8 @@ Wired Elements is a series of basic UI Elements that have a hand drawn look. The
 
 ## Try now
 Play with wired-elements:
+
+[Wired Elements in Designer](https://node-projects.github.io/web-component-designer-demo/index.html?npm=@node-projects/wired-elements&loadAllImports&html=%3Cwired-button%20style=%22position:absolute;left:39px;top:28px;%22%3EHallo%3C/wired-button%3E%20%3Cwired-combo%20style=%22position:absolute;left:51px;top:109px;%22%3E%3C/wired-combo%3E%20%3Cwired-checkbox%20style=%22position:absolute;left:41px;top:184px;%22%3Echeck%3C/wired-checkbox%3E%20%3Cwired-video%20src=%22https://archive.org/download/Rick_Astley_Never_Gonna_Give_You_Up/Rick_Astley_Never_Gonna_Give_You_Up.mp4%22%20style=%22position:absolute;left:211px;top:28px;%22%3E%3C/wired-video%3E)
 
 [Wired Elements](https://codesandbox.io/s/wired-elements-vanilla-4bpny)
 
@@ -24,18 +26,18 @@ Play with wired-elements:
 
 ## Install
 
-The package (wired-elements) exports all components in the **_wired_** category. List of all wired elements can be found [here](https://github.com/rough-stuff/wired-elements/tree/master/src).
+The package (wired-elements) exports all components in the **_wired_** category. List of all wired elements can be found [here](https://github.com/node-projects/wired-elements/tree/master/src).
 
 Add wired-elements to your project:
 ```
-npm i wired-elements
+npm i @node-projects/wired-elements
 ```
 
 
 Or load the ES module directly through unpkg
 
 ```html
-<script type="module" src="https://unpkg.com/wired-elements?module"></script>
+<script type="module" src="https://unpkg.com/@node-projects/wired-elements?module"></script>
 ```
 
 
@@ -43,14 +45,14 @@ Or load the ES module directly through unpkg
 
 Import into your module script:
 ```javascript
-import { WiredButton, WiredInput } from "wired-elements"
+import { WiredButton, WiredInput } from "@node-projects/wired-elements"
 ```
 
 or 
 
 ```javascript
-import { WiredButton } from 'wired-elements/lib/wired-button.js';
-import { WiredInput } from 'wired-elements/lib/wired-input.js';
+import { WiredButton } from '@node-projects/wired-elements/lib/wired-button.js';
+import { WiredInput } from '@node-projects/wired-elements/lib/wired-input.js';
 ```
 
 #### Use it in your HTML:
@@ -63,7 +65,7 @@ Learn about web components [here](https://developer.mozilla.org/en-US/docs/Web/W
 
 ## Component API
 
-To view details of each component - properties, events, css-properties, etc, are provided in the [docs folder](https://github.com/rough-stuff/wired-elements/tree/master/docs).
+To view details of each component - properties, events, css-properties, etc, are provided in the [docs folder](https://github.com/node-projects/wired-elements/tree/master/docs).
 
 ## Demo
 
@@ -73,32 +75,5 @@ Demo of all components is available at [wiredjs.com](https://wiredjs.com/showcas
 
 wired-elements was built using [RoughJS](https://roughjs.com/) and [Lit](https://lit.dev/).
 
-## Contributors
-
-Become a sponsor of the [Rough suite of libraries](https://github.com/rough-stuff)
-
-### Financial Contributors
-
-Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/rough/contribute)]
-
-#### Individuals
-
-<a href="https://opencollective.com/rough"><img src="https://opencollective.com/rough/individuals.svg?width=890"></a>
-
-#### Organizations
-
-Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/rough/contribute)]
-
-<a href="https://opencollective.com/rough/organization/0/website"><img src="https://opencollective.com/rough/organization/0/avatar.svg"></a>
-<a href="https://opencollective.com/rough/organization/1/website"><img src="https://opencollective.com/rough/organization/1/avatar.svg"></a>
-<a href="https://opencollective.com/rough/organization/2/website"><img src="https://opencollective.com/rough/organization/2/avatar.svg"></a>
-<a href="https://opencollective.com/rough/organization/3/website"><img src="https://opencollective.com/rough/organization/3/avatar.svg"></a>
-<a href="https://opencollective.com/rough/organization/4/website"><img src="https://opencollective.com/rough/organization/4/avatar.svg"></a>
-<a href="https://opencollective.com/rough/organization/5/website"><img src="https://opencollective.com/rough/organization/5/avatar.svg"></a>
-<a href="https://opencollective.com/rough/organization/6/website"><img src="https://opencollective.com/rough/organization/6/avatar.svg"></a>
-<a href="https://opencollective.com/rough/organization/7/website"><img src="https://opencollective.com/rough/organization/7/avatar.svg"></a>
-<a href="https://opencollective.com/rough/organization/8/website"><img src="https://opencollective.com/rough/organization/8/avatar.svg"></a>
-<a href="https://opencollective.com/rough/organization/9/website"><img src="https://opencollective.com/rough/organization/9/avatar.svg"></a>
-
 ## License
-[MIT License](https://github.com/rough-stuff/wired-elements/blob/master/LICENSE) (c) [Preet Shihn](https://twitter.com/preetster)
+[MIT License](https://github.com/node-projects/wired-elements/blob/master/LICENSE) (c) [Preet Shihn](https://twitter.com/preetster)
