@@ -89,7 +89,7 @@ export class WiredInput extends WiredBase {
       ?required="${this.required}" autocomplete="${this.autocomplete}" ?autofocus="${this.autofocus}" minlength="${this.minlength}"
       maxlength="${this.maxlength}" min="${this.min}" max="${this.max}" step="${this.step}" ?readonly="${this.readonly}"
       size="${this.size}" autocapitalize="${this.autocapitalize}" autocorrect="${this.autocorrect}" 
-      @change="${this.refire}" @input="${this.refire}">
+      @change="${this.refire}" @input="${this.refire}" @keydown="${this.refire}" @keyup="${this.refire}">
     <div id="overlay">
       <svg></svg>
     </div>
@@ -100,6 +100,7 @@ export class WiredInput extends WiredBase {
     return this.textInput;
   }
 
+  @property({ type: String })
   get value(): string {
     const input = this.input;
     return (input && input.value) || '';
