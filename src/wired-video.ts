@@ -127,8 +127,9 @@ export class WiredVideo extends WiredBase {
       .muted="${this.muted}"
       .playsinline="${this.playsinline}"
       src="${this.src}"
-      @play="${() => this.playing = true}"
-      @pause="${() => this.playing = false}"
+      @play="${() => { this.playing = true;  this.dispatchEvent(new CustomEvent('play')) } }"
+      @playing="${() => this.dispatchEvent(new CustomEvent('playing'))}"
+      @pause="${() => { this.playing = false; this.dispatchEvent(new CustomEvent('pause')) } }"
       @canplay="${this.canPlay}"
       @timeupdate="${this.updateTime}">
     </video>
