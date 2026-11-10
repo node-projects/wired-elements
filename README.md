@@ -1,111 +1,130 @@
-# Info
+# @node-projects/wired-elements
 
-This is a fork of the wired repo to fix es6 imports, also updates all Librarys and makes the Library usable in webcomponents Designer.
+[![npm version](https://img.shields.io/npm/v/@node-projects/wired-elements)](https://www.npmjs.com/package/@node-projects/wired-elements)
+[![npm downloads](https://img.shields.io/npm/dm/@node-projects/wired-elements)](https://www.npmjs.com/package/@node-projects/wired-elements)
+[![Component showcase](https://github.com/node-projects/wired-elements/actions/workflows/pages.yml/badge.svg?branch=master)](https://github.com/node-projects/wired-elements/actions/workflows/pages.yml)
+[![Publish release package](https://github.com/node-projects/wired-elements/actions/workflows/publish-release.yml/badge.svg)](https://github.com/node-projects/wired-elements/actions/workflows/publish-release.yml)
+[![MIT license](https://img.shields.io/github/license/node-projects/wired-elements)](https://github.com/node-projects/wired-elements/blob/master/LICENSE)
 
-# wired-elements 👉 [wiredjs.com](https://wiredjs.com)
-Wired Elements is a series of basic UI Elements that have a hand drawn look. These can be used for wireframes, mockups, or just the fun hand-drawn look. 
+Hand-drawn web components for wireframes, prototypes, and interfaces with a sketchbook feel.
 
-![alt Preview](https://i.imgur.com/qttPllg.png)
+This is the **node-projects fork** of [Wired Elements](https://github.com/rough-stuff/wired-elements), published as `@node-projects/wired-elements`. It fixes ES module import paths, uses Lit 3 and `@node-projects/roughjs` 5, and supports use in [Web Component Designer](https://github.com/node-projects/web-component-designer).
 
+**[Live component showcase](https://node-projects.github.io/wired-elements/)** · **[Component API](https://github.com/node-projects/wired-elements/tree/master/docs)** · **[GitHub releases](https://github.com/node-projects/wired-elements/releases)**
 
-## Try now
-Play with wired-elements:
+## Try it
 
-[Wired Elements in Designer](https://node-projects.github.io/web-component-designer-demo/index.html?npm=@node-projects/wired-elements&loadAllImports&html=%3Cwired-button%20style=%22position:absolute;left:39px;top:28px;%22%3EHallo%3C/wired-button%3E%20%3Cwired-combo%20style=%22position:absolute;left:51px;top:109px;%22%3E%3C/wired-combo%3E%20%3Cwired-checkbox%20style=%22position:absolute;left:41px;top:184px;%22%3Echeck%3C/wired-checkbox%3E%20%3Cwired-video%20src=%22https://archive.org/download/Rick_Astley_Never_Gonna_Give_You_Up/Rick_Astley_Never_Gonna_Give_You_Up.mp4%22%20style=%22position:absolute;left:211px;top:28px;%22%3E%3C/wired-video%3E)
+The [showcase](https://node-projects.github.io/wired-elements/) includes all 26 elements in 23 interactive examples, with category filters, search, and copyable HTML. It builds from this repository's source and bundles its dependencies, including unpublished changes when run locally.
 
-[Wired Elements](https://codesandbox.io/s/wired-elements-vanilla-4bpny)
-
-#### Try it with a framework
-
-[Wired Elements in React](https://codesandbox.io/s/xrll5wyl8w)
-
-[Wired Elements in Vue](https://codesandbox.io/s/vj389y9375)
-
-[Wired Elements in Svelte](https://codesandbox.io/s/wired-elements-svelte-4hfkb)
-
+You can also [open this package in Web Component Designer](https://node-projects.github.io/web-component-designer-demo/index.html?npm=%40node-projects%2Fwired-elements&loadAllImports&html=%3Cwired-button%3EHello%3C%2Fwired-button%3E).
 
 ## Install
 
-The package (wired-elements) exports all components in the **_wired_** category. List of all wired elements can be found [here](https://github.com/node-projects/wired-elements/tree/master/src).
-
-Add wired-elements to your project:
+```sh
+npm install @node-projects/wired-elements
 ```
-npm i @node-projects/wired-elements
-```
-
-
-Or load the ES module directly through unpkg
-
-```html
-<script type="module" src="https://unpkg.com/@node-projects/wired-elements?module"></script>
-```
-
 
 ## Usage
 
-Import into your module script:
-```javascript
-import { WiredButton, WiredInput } from "@node-projects/wired-elements"
+Import the elements you need into your application's JavaScript entry point:
+
+```js
+import '@node-projects/wired-elements/lib/wired-button.js';
+import '@node-projects/wired-elements/lib/wired-input.js';
 ```
 
-or 
+Then use them in HTML:
 
-```javascript
-import { WiredButton } from '@node-projects/wired-elements/lib/wired-button.js';
-import { WiredInput } from '@node-projects/wired-elements/lib/wired-input.js';
-```
-
-#### Use it in your HTML:
 ```html
-<wired-input placeholder="Enter name"></wired-input>
-<wired-button>Click Me</wired-button>
+<wired-input placeholder="Enter your name"></wired-input>
+<wired-button elevation="2">Say hello</wired-button>
 ```
 
-Learn about web components [here](https://developer.mozilla.org/en-US/docs/Web/Web_Components).
+To register the main collection at once:
 
-## Component API
+```js
+import '@node-projects/wired-elements';
+```
 
-To view details of each component - properties, events, css-properties, etc, are provided in the [docs folder](https://github.com/node-projects/wired-elements/tree/master/docs).
+The calendar has a separate entry point:
 
-## Demo
+```js
+import '@node-projects/wired-elements/lib/wired-calendar.js';
+```
 
-Our component showcase is prepared for [GitHub Pages](https://node-projects.github.io/wired-elements/), with live examples of all 26 elements, category filters, search, and copyable HTML.
+Use a bundler or a browser import map to resolve the package's npm dependencies. The local showcase demonstrates a bundled browser setup.
 
-### Run the showcase locally
+These are standard custom elements: use them in plain HTML and JavaScript or in frameworks that support web components. See the [component documentation](https://github.com/node-projects/wired-elements/tree/master/docs) for properties, events, and CSS custom properties. Use the scoped `@node-projects/wired-elements` package when adapting upstream examples.
+
+## Components
+
+| Category | Elements |
+| --- | --- |
+| Actions | [button](docs/wired-button.md), [fab](docs/wired-fab.md), [icon-button](docs/wired-icon-button.md), [link](docs/wired-link.md) |
+| Inputs | [input](docs/wired-input.md), [textarea](docs/wired-textarea.md), [search-input](docs/wired-search-input.md), [checkbox](docs/wired-checkbox.md), [toggle](docs/wired-toggle.md), [radio and radio-group](docs/wired-radio-group.md), [combo](docs/wired-combo.md), [listbox](docs/wired-listbox.md), [item](docs/wired-item.md), [slider](docs/wired-slider.md), [calendar](docs/wired-calendar.md) |
+| Layout | [card](docs/wired-card.md), [tabs and tab](docs/wired-tabs.md), [divider](docs/wired-divider.md), [dialog](docs/wired-dialog.md) |
+| Feedback | [progress](docs/wired-progress.md), [progress-ring](docs/wired-progress-ring.md), [spinner](docs/wired-spinner.md) |
+| Media | [image](docs/wired-image.md), [video](docs/wired-video.md) |
+
+All element names use the `wired-` prefix, such as `<wired-checkbox>`.
+
+## Develop locally
 
 ```sh
 npm ci
+npm run build
+```
+
+The TypeScript build writes the library and type declarations to `lib/`.
+
+### Run the showcase
+
+```sh
 npm run preview:site
 ```
 
-Open http://127.0.0.1:4173. The showcase bundles the components from this checkout and their dependencies, so it also previews unpublished changes without a CDN. The video example accepts a local file; it does not upload it.
+Open [http://127.0.0.1:4173](http://127.0.0.1:4173). The showcase uses Wired controls and a locally bundled handwritten font. The video example accepts a local file that stays in your browser.
 
-`npm run build:site` builds the library and writes the static site to `_site/`. All asset URLs are relative so the site works under the repository's GitHub Pages path.
+`npm run build:site` builds the library and writes the static showcase to `_site/`. Asset URLs are relative so the site works under the repository's GitHub Pages path.
 
-### Publish on GitHub Pages
+### GitHub Pages
 
-In the repository's **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source. The **Component showcase** workflow builds pull requests for validation and deploys pushes to `master`. After the initial commit and push, it can also be run manually from the Actions tab. Its deployment summary contains the published URL.
+The [Component showcase workflow](.github/workflows/pages.yml) validates pull requests and deploys pushes to `master`. It can also be run manually from the Actions tab. The repository's **Settings → Pages → Build and deployment** must use **GitHub Actions** as the source.
 
-The original upstream showcase is available at [wiredjs.com](https://wiredjs.com/showcase.html).
+## Publish a release
 
-## Release packages
+Publish a GitHub release with an exact version tag such as `v3.2.0` or `3.2.0`. The [Publish release package workflow](.github/workflows/publish-release.yml):
 
-Publish a GitHub release with an exact version tag such as `v3.2.0` or `3.2.0`. The **Publish release package** workflow checks out that tag's commit, sets the package and lockfile version for the build without creating a version commit, builds the library, and packs it once. It publishes that tarball to npmjs.com and attaches the same `.tgz` file to the GitHub release. SemVer prereleases and releases marked as prereleases on GitHub use the `next` npm tag; stable releases use `latest`.
+1. Checks out the release tag's commit.
+2. Sets the package and lockfile version for the build without creating a version commit.
+3. Builds the library and creates one npm tarball.
+4. Publishes that tarball to npmjs.com and attaches the same `.tgz` file to the GitHub release.
 
-The workflow uses npm trusted publishing (GitHub Actions OIDC), with no npm token secret. Its trusted publisher is configured for `node-projects/wired-elements` and the workflow filename `publish-release.yml`. A maintainer can configure it using an authenticated npm CLI with 2FA:
+SemVer prereleases and releases marked as prereleases on GitHub use the `next` npm tag; stable releases use `latest`.
+
+### Publishing authentication
+
+npm trusted publishing is configured for `node-projects/wired-elements` and the workflow filename `publish-release.yml`. The workflow authenticates through GitHub Actions OIDC and needs no npm token secret. If this configuration needs to be recreated, a maintainer can use an authenticated npm CLI with 2FA:
 
 ```sh
 npx --yes --package=npm@12.2.2 npm trust github @node-projects/wired-elements \
   --repo=node-projects/wired-elements --file=publish-release.yml --allow-publish --yes
 ```
 
-To retry an existing published release, select **Actions → Publish release package → Run workflow** on `master`, and enter the original release tag in `release_tag`. This also works for releases whose source tag predates this workflow. If npm already has the version with identical integrity, the workflow skips publishing and retries the GitHub asset upload. A version already published with different contents fails instead of replacing it. Existing assets with the same filename are replaced during upload. npm package versions are immutable; publish a new release version when package contents change.
+### Retry an existing release
 
-The pack metadata reader accepts npm 11's array output and npm 12's package-name-keyed object output. Run `node --test scripts/release-package.test.mjs` to check both formats, version validation, prerelease tags, and retry behavior.
+Select **Actions → Publish release package → Run workflow** on `master`, and enter the original tag in `release_tag`. This also works for tags created before the workflow existed.
 
-## Credits
+If npm already has the version with identical integrity, the workflow skips publishing and retries the GitHub asset upload. Existing assets with the same filename are replaced. A version already published with different contents fails; create a new release version when package contents change.
 
-wired-elements was built using [RoughJS](https://roughjs.com/) and [Lit](https://lit.dev/).
+The pack metadata reader accepts both npm 11's array output and npm 12's object keyed by package name. Check the format handling, version validation, prerelease tags, and retries with:
 
-## License
-[MIT License](https://github.com/node-projects/wired-elements/blob/master/LICENSE) (c) [Preet Shihn](https://twitter.com/preetster)
+```sh
+node --test scripts/release-package.test.mjs
+```
+
+## Credits and license
+
+Originally created by [Preet Shihn](https://github.com/pshihn). Built with [Lit](https://lit.dev/) and [Rough.js](https://roughjs.com/), with this fork using [@node-projects/roughjs](https://www.npmjs.com/package/@node-projects/roughjs).
+
+Released under the [MIT License](LICENSE). Copyright © 2021 Preet Shihn.
