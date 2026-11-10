@@ -1,0 +1,110 @@
+name: Publish release package
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing published release tag to publish or retry (for example v3.2.0)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: npm-release-${{ github.event.release.tag_name || inputs.release_tag }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      # Keep the current workflow's helpers when retrying a tag made before this workflow existed.
+      - name: Check out release automation
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.workflow_sha }}
+          persist-credentials: false
+
+      - name: Resolve published release and source commit
+        id: release
+        uses: actions/github-script@v8
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
+        with:
+          script: |
+            const tag = process.env.RELEASE_TAG;
+            const { data: release } = await github.rest.repos.getReleaseByTag({
+              ...context.repo, tag
+            });
+            if (release.draft || !release.published_at) {
+              throw new Error('Select an existing, published GitHub release.');
+            }
+            const { data: commit } = await github.rest.repos.getCommit({
+              ...context.repo, ref: `refs/tags/${tag}`
+            });
+            core.setOutput('tag', release.tag_name);
+            core.setOutput('prerelease', String(release.prerelease));
+            core.setOutput('sha', commit.sha);
+
+      - name: Check out the released source
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ steps.release.outputs.sha }}
+          path: release-source
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Install npm with trusted publishing support
+        run: npm install --global npm@12.2.2
+
+      - name: Check release automation
+        run: node --test scripts/release-package.test.mjs
+
+      - name: Set version from the release tag
+        working-directory: release-source
+        env:
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+          RELEASE_PRERELEASE: ${{ steps.release.outputs.prerelease }}
+        run: node ../scripts/release-package.mjs version
+
+      - name: Install dependencies
+        working-directory: release-source
+        run: npm ci
+
+      - name: Build package
+        working-directory: release-source
+        run: npm run build
+
+      - name: Pack and validate package
+        id: package
+        working-directory: release-source
+        env:
+          PACK_DIRECTORY: ${{ runner.temp }}/npm-release
+          RELEASE_PRERELEASE: ${{ steps.release.outputs.prerelease }}
+        run: node ../scripts/release-package.mjs pack
+
+      - name: Publish the exact tarball to npm
+        working-directory: release-source
+        env:
+          TARBALL: ${{ steps.package.outputs.tarball }}
+          PACK_INTEGRITY: ${{ steps.package.outputs.integrity }}
+          NPM_TAG: ${{ steps.package.outputs.dist_tag }}
+        run: node ../scripts/release-package.mjs publish
+
+      - name: Attach the same tarball to the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+          TARBALL: ${{ steps.package.outputs.tarball }}
+        run: gh release upload "$RELEASE_TAG" "$TARBALL" --repo "$GITHUB_REPOSITORY" --clobber

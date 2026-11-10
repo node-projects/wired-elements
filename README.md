@@ -88,6 +88,21 @@ In the repository's **Settings → Pages → Build and deployment**, select **Gi
 
 The original upstream showcase is available at [wiredjs.com](https://wiredjs.com/showcase.html).
 
+## Release packages
+
+Publish a GitHub release with an exact version tag such as `v3.2.0` or `3.2.0`. The **Publish release package** workflow checks out that tag's commit, sets the package and lockfile version for the build without creating a version commit, builds the library, and packs it once. It publishes that tarball to npmjs.com and attaches the same `.tgz` file to the GitHub release. SemVer prereleases and releases marked as prereleases on GitHub use the `next` npm tag; stable releases use `latest`.
+
+The workflow uses npm trusted publishing (GitHub Actions OIDC), with no npm token secret. Its trusted publisher is configured for `node-projects/wired-elements` and the workflow filename `publish-release.yml`. A maintainer can configure it using an authenticated npm CLI with 2FA:
+
+```sh
+npx --yes --package=npm@12.2.2 npm trust github @node-projects/wired-elements \
+  --repo=node-projects/wired-elements --file=publish-release.yml --allow-publish --yes
+```
+
+To retry an existing published release, select **Actions → Publish release package → Run workflow** on `master`, and enter the original release tag in `release_tag`. This also works for releases whose source tag predates this workflow. If npm already has the version with identical integrity, the workflow skips publishing and retries the GitHub asset upload. A version already published with different contents fails instead of replacing it. Existing assets with the same filename are replaced during upload. npm package versions are immutable; publish a new release version when package contents change.
+
+The pack metadata reader accepts npm 11's array output and npm 12's package-name-keyed object output. Run `node --test scripts/release-package.test.mjs` to check both formats, version validation, prerelease tags, and retry behavior.
+
 ## Credits
 
 wired-elements was built using [RoughJS](https://roughjs.com/) and [Lit](https://lit.dev/).
