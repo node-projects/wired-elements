@@ -69,7 +69,24 @@ To view details of each component - properties, events, css-properties, etc, are
 
 ## Demo
 
-Demo of all components is available at [wiredjs.com](https://wiredjs.com/showcase.html).
+Our component showcase is prepared for [GitHub Pages](https://node-projects.github.io/wired-elements/), with live examples of all 26 elements, category filters, search, and copyable HTML.
+
+### Run the showcase locally
+
+```sh
+npm ci
+npm run preview:site
+```
+
+Open http://127.0.0.1:4173. The showcase bundles the components from this checkout and their dependencies, so it also previews unpublished changes without a CDN. The video example accepts a local file; it does not upload it.
+
+`npm run build:site` builds the library and writes the static site to `_site/`. All asset URLs are relative so the site works under the repository's GitHub Pages path.
+
+### Publish on GitHub Pages
+
+In the repository's **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source. The **Component showcase** workflow builds pull requests for validation and deploys pushes to `master`. After the initial commit and push, it can also be run manually from the Actions tab. Its deployment summary contains the published URL.
+
+The original upstream showcase is available at [wiredjs.com](https://wiredjs.com/showcase.html).
 
 ## Credits
 

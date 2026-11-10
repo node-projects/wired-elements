@@ -1,0 +1,667 @@
+@font-face {
+  font-family: "Patrick Hand";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/patrick-hand-latin-400-normal.woff2") format("woff2");
+}
+:root {
+  --hand: "Patrick Hand", "Chalkboard SE", cursive;
+  color-scheme: light;
+  --paper:#faf9f4;
+  --ink:#252c29;
+  --muted:#666e65;
+  --green:#466444;
+  --line:#dbded2;
+  --wired-progress-color:#647e4f;
+  --wired-slider-knob-color:#647e4f;
+  --wired-toggle-on-color:#647e4f;
+  --wired-checkbox-icon-color:#466444;
+  --wired-item-selected-bg:#e5eadb;
+  --wired-item-selected-color:#252c29;
+  font-family: var(--hand);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-underline-offset: 4px;
+}
+button,
+input {
+  font: inherit;
+}
+a,
+button,
+input,
+summary {
+  touch-action: manipulation;
+}
+button {
+  cursor: pointer;
+}
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #987429;
+  outline-offset: 5px;
+}
+[hidden] {
+  display: none !important;
+}
+.topbar {
+  max-width: 1320px;
+  margin: auto;
+  padding: 26px 42px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+.topbar wired-link {
+  text-decoration: none;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -.6px;
+}
+.brand-icon {
+  font-family: var(--hand);
+  font-style: italic;
+  background: var(--green);
+  color: white;
+  padding: 0 9px;
+  font-size: 26px;
+  transform: rotate(-5deg);
+  border-radius: 4px;
+}
+.fork {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+main {
+  max-width: 1236px;
+  margin: auto;
+  padding: 0 36px;
+}
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 85px;
+  align-items: center;
+  padding: 85px 0 95px;
+}
+.eyebrow {
+  font-family: var(--hand);
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: var(--green);
+}
+h1 {
+  font-family: var(--hand);
+  font-weight: 400;
+  letter-spacing: -3.3px;
+  font-size: clamp(44px, 5.3vw, 73px);
+  line-height: 1.08;
+  margin: 22px 0;
+}
+h1 span {
+  font-style: italic;
+  color: var(--green);
+}
+.intro {
+  max-width: 530px;
+  font-size: 17px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin: 28px 0 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.hero-actions wired-link {
+  text-decoration: none;
+}
+.primary {
+  background: var(--green);
+  color: white;
+  padding: 13px 19px;
+  border-radius: 3px;
+}
+.hero-note {
+  font-size: 11px;
+  color: var(--muted);
+}
+.hero-sketch {
+  position: relative;
+  transform: rotate(-2deg);
+  padding: 26px 0 10px;
+}
+.hero-sketch wired-card {
+  display: block;
+  background: #f0f1e5;
+  padding: 30px 25px;
+  --wired-card-background:#f0f1e5;
+}
+.hero-sketch h2 {
+  font-family: var(--hand);
+  font-size: 27px;
+  font-weight: 400;
+  margin: 12px 0 24px;
+}
+.hero-sketch wired-input {
+  display: block;
+  width: 100%;
+  margin-bottom: 22px;
+}
+.hero-sketch wired-checkbox {
+  display: block;
+  font-size: 13px;
+}
+.row {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-top: 25px;
+}
+.row span {
+  font-size: 15px;
+  color: var(--green);
+}
+.annotation,
+.sketch-caption {
+  font-family: var(--hand);
+  font-style: italic;
+  color: var(--green);
+  font-size: 17px;
+}
+.annotation {
+  position: absolute;
+  top: -15px;
+  right: 0;
+  transform: rotate(6deg);
+}
+.sketch-caption {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+}
+section {
+  scroll-margin-top: 25px;
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  border-top: 1px solid var(--line);
+  padding-top: 25px;
+}
+.section-heading h2,
+.getting-started h2 {
+  font-family: var(--hand);
+  font-weight: 400;
+  font-size: 38px;
+  letter-spacing: -1px;
+  margin: 10px 0;
+}
+.dot {
+  color: var(--green);
+}
+.section-heading > p {
+  color: var(--muted);
+  font-size: 13px;
+}
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin: 25px 0 12px;
+}
+.filters {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.filters wired-button {
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 7px 13px;
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.filters .active {
+  background: var(--ink);
+  color: white;
+}
+.filters wired-button:hover:not(.active) {
+  border-color: var(--line);
+}
+.search wired-search-input {
+  width: 210px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 9px 12px;
+  background: transparent;
+  font-size: 12px;
+  color: var(--ink);
+}
+.result-count {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+.component {
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #fffefa;
+  min-width: 0;
+  scroll-margin-top: 20px;
+}
+.component-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px 0;
+}
+.category {
+  text-transform: uppercase;
+  font-family: var(--hand);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+}
+.permalink {
+  text-decoration: none;
+  color: var(--muted);
+}
+.component > h3 {
+  font-family: var(--hand);
+  font-size: 16px;
+  font-weight: 500;
+  margin: 8px 22px 4px;
+}
+.description {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0 22px;
+  min-height: 41px;
+}
+.demo {
+  min-height: 185px;
+  padding: 25px 22px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 14px;
+  background-image: radial-gradient(#b7c1aa66 .65px, transparent .65px);
+  background-size: 12px 12px;
+  margin-top: 12px;
+  font-size: 14px;
+}
+.demo > span,
+.demo > output {
+  font-size: 12px;
+  color: var(--muted);
+}
+.demo wired-input,
+.demo wired-search-input,
+.demo wired-textarea {
+  max-width: 100%;
+}
+.demo wired-textarea {
+  width: 100%;
+}
+.demo wired-slider {
+  width: 100%;
+  max-width: 250px;
+}
+.demo wired-card {
+  padding: 15px;
+  max-width: 100%;
+  background: var(--paper);
+}
+.demo wired-card h3 {
+  font-family: var(--hand);
+  font-size: 21px;
+  font-weight: 400;
+  margin: 0;
+}
+.demo wired-card p {
+  font-size: 12px;
+}
+.demo wired-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.demo wired-tabs {
+  width: 100%;
+  font-size: 13px;
+  min-height: 115px;
+}
+.demo wired-tab {
+  padding: 15px;
+}
+.demo wired-progress {
+  width: 100%;
+}
+.demo wired-progress-ring {
+  width: 105px;
+}
+.demo wired-spinner {
+  width: 60px;
+  height: 60px;
+  color: var(--green);
+}
+.demo wired-calendar {
+  width: 260px;
+  max-width: 100%;
+  font-size: 12px;
+  --wired-calendar-selected-color:#466444;
+}
+.demo wired-image {
+  width: 100%;
+  max-width: 260px;
+}
+.demo wired-video {
+  width: 100%;
+  min-height: 170px;
+}
+.video-upload {
+  font-size: 12px;
+  display: grid;
+  gap: 8px;
+  max-width: 100%;
+}
+.video-upload input {
+  font-size: 11px;
+  width: 100%;
+}
+.divider-demo {
+  width: 100%;
+  font-family: var(--hand);
+}
+.divider-demo p {
+  margin: 5px;
+}
+.dialog-content {
+  padding: 24px;
+  max-width: calc(100vw - 40px);
+}
+details {
+  border-top: 1px solid var(--line);
+}
+summary {
+  cursor: pointer;
+  padding: 12px 22px;
+  font-family: var(--hand);
+  font-size: 11px;
+  color: var(--muted);
+}
+.code-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  font-size: 10px;
+}
+.copy {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  font-size: 10px;
+  padding: 4px 8px;
+}
+pre {
+  font-size: 11px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.9;
+  margin: 12px 15px 20px;
+  color: #42543d;
+}
+wired-combo {
+  --wired-combo-popup-bg:#fffefa;
+  max-width: 100%;
+}
+.getting-started {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 70px;
+  padding: 55px 0;
+  margin: 70px 0 10px;
+  border-top: 1px solid var(--line);
+}
+.getting-started p:not(.eyebrow) {
+  font-size: 14px;
+  color: var(--muted);
+}
+.getting-started wired-link {
+  font-size: 13px;
+}
+.quickstart {
+  background: #edf0e5;
+  border-radius: 5px;
+  padding: 18px 20px;
+}
+.quickstart p {
+  font-family: var(--hand);
+  font-size: 10px !important;
+  letter-spacing: 1.5px;
+  margin: 0 0 7px;
+}
+.quickstart pre {
+  margin: 0 0 20px;
+  font-size: 12px;
+}
+.quickstart pre:last-child {
+  margin-bottom: 0;
+}
+footer {
+  max-width: 1236px;
+  margin: auto;
+  padding: 26px 36px;
+  border-top: 1px solid var(--line);
+  font-size: 10px;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+.sr-only,
+.skip:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.skip:focus {
+  position: fixed;
+  z-index: 200;
+  background: white;
+  padding: 10px;
+}
+.component:target {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+@media (min-width: 950px) {
+  #wired-calendar .demo {
+    min-height: 300px;
+  }
+}
+@media (max-width: 950px) {
+  .hero {
+    gap: 35px;
+    padding: 65px 0;
+  }
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .toolbar {
+    align-items: start;
+    flex-direction: column;
+  }
+  .hero-sketch wired-card {
+    padding: 22px 17px;
+  }
+  .getting-started {
+    gap: 30px;
+  }
+}
+@media (max-width: 640px) {
+  .topbar {
+    padding: 18px 20px;
+  }
+  .brand {
+    font-size: 15px;
+  }
+  .fork {
+    display: none;
+  }
+  main {
+    padding: 0 20px;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 35px 0 50px;
+  }
+  .hero-sketch {
+    max-width: 400px;
+    width: 100%;
+    justify-self: center;
+  }
+  .hero h1 {
+    font-size: 48px;
+    letter-spacing: -2px;
+  }
+  .intro {
+    font-size: 15px;
+  }
+  .hero-actions {
+    gap: 18px;
+    font-size: 12px;
+  }
+  .section-heading {
+    display: block;
+  }
+  .section-heading > p {
+    margin-top: 0;
+  }
+  .section-heading h2 {
+    font-size: 31px;
+  }
+  .toolbar {
+    gap: 15px;
+  }
+  .search,
+  .search wired-search-input {
+    width: 100%;
+  }
+  .filters {
+    gap: 0;
+  }
+  .filters wired-button {
+    padding: 7px 10px;
+  }
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  .getting-started {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 45px;
+    padding: 35px 0;
+  }
+  footer {
+    flex-direction: column;
+    padding: 24px 20px;
+  }
+  .demo {
+    min-height: 170px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* Explicit host styles also override components that default to sans-serif. */
+:where(wired-button, wired-link, wired-input, wired-search-input, wired-textarea,
+wired-checkbox, wired-toggle, wired-radio, wired-radio-group, wired-combo,
+wired-listbox, wired-item, wired-card, wired-tabs, wired-tab, wired-calendar,
+wired-progress, wired-progress-ring, wired-dialog, wired-video) {
+  font-family: var(--hand);
+}
+body { font-size: 19px; }
+h1 { letter-spacing: -1px; }
+.eyebrow { font-size: 14px; }
+.intro { font-size: 21px; }
+.description { font-size: 17px; min-height: 58px; }
+.component > h3 { font-size: 23px; }
+.category, .result-count, .hero-note, footer { font-size: 14px; }
+.demo { font-size: 19px; }
+.demo > span, .demo > output, .demo wired-card p { font-size: 16px; }
+.demo wired-tabs, .demo wired-calendar { font-size: 17px; }
+.demo wired-calendar { width: 275px; }
+.filters wired-button { font-size: 16px; padding: 0; border: 0; }
+.filters wired-button.active { background: #e5eadb; color: var(--green); }
+.search wired-search-input { font-size: 17px; padding: 4px 36px 4px 4px; border: 0; width: 235px; }
+.copy { border: 0; padding: 0; font-size: 15px; }
+.code-actions, summary { font-size: 16px; }
+pre, code { font-family: var(--hand); font-size: 17px; }
+.quickstart pre { font-size: 17px; }
+.quickstart p { font-size: 14px !important; }
+.getting-started p:not(.eyebrow) { font-size: 19px; }
+.getting-started wired-link { font-size: 18px; }
+.hero-actions { font-size: 18px; }
+.hero-actions .primary { padding: 7px 10px; }
+.hero-sketch wired-checkbox { font-size: 18px; }
+@media (max-width:640px) {
+  .search wired-search-input { width: 100%; }
+  .hero-actions { font-size: 16px; }
+  .intro { font-size: 20px; }
+}

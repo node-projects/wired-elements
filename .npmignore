@@ -4,3 +4,6 @@ examples
 tsconfig.json
 tslint.json
 packages
+site
+scripts
+_site

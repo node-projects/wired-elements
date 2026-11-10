@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the node-projects Wired Elements collection: live, hand-drawn web components with copyable HTML examples.">
+  <title>Wired Elements · The component sketchbook</title>
+  <link rel="icon" href="./sketch.svg" type="image/svg+xml">
+  <link rel="preload" href="./fonts/patrick-hand-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./showcase.js"></script>
+</head>
+<body>
+  <wired-link class="skip" href="#components">Skip to components</wired-link>
+  <header class="topbar"><wired-link class="brand" href="./"><span class="brand-icon">w.</span> wired elements <span class="fork">/ node-projects</span></wired-link><wired-link href="https://github.com/node-projects/wired-elements">GitHub ↗</wired-link></header>
+  <main>
+    <section class="hero" aria-labelledby="title">
+      <div><p class="eyebrow">WEB COMPONENTS, WITH A HUMAN TOUCH</p><h1 id="title">A little rough.<br><span>A lot of character.</span></h1><p class="intro">Buttons, inputs, and all the in-betweens. A collection of hand-drawn web components for interfaces that feel like ideas in motion.</p><div class="hero-actions"><wired-link class="primary" href="#components">Open the sketchbook ↓</wired-link><wired-link href="#getting-started">Start building ↗</wired-link></div><p class="hero-note">Built with Lit + Rough.js · Works with your framework</p></div>
+      <div class="hero-sketch" aria-label="A small interactive sketch"><span class="annotation">go on, give it a try ↙</span><wired-card elevation="3"><p class="eyebrow">A WORK IN PROGRESS</p><h2>Your next bright idea.</h2><wired-input aria-label="Your idea" placeholder="It starts with a sketch…"></wired-input><wired-checkbox checked>Leave room for a little personality</wired-checkbox><div class="row"><wired-button id="idea-button" elevation="2">Make something</wired-button><span id="idea-result" aria-live="polite">✳</span></div></wired-card><span class="sketch-caption">Perfectly imperfect, by design.</span></div>
+    </section>
+    <section id="components" aria-labelledby="gallery-title">
+      <div class="section-heading"><div><p class="eyebrow">THE COLLECTION</p><h2 id="gallery-title">Meet the elements<span class="dot">.</span></h2></div><p>Real components. Ready to play.</p></div>
+      <div class="toolbar"><div class="filters" role="group" aria-label="Component category"><wired-button class="active" data-category="All" aria-pressed="true">All</wired-button><wired-button data-category="Actions" aria-pressed="false">Actions</wired-button><wired-button data-category="Inputs" aria-pressed="false">Inputs</wired-button><wired-button data-category="Layout" aria-pressed="false">Layout</wired-button><wired-button data-category="Feedback" aria-pressed="false">Feedback</wired-button><wired-button data-category="Media" aria-pressed="false">Media</wired-button></div><label class="search"><span class="sr-only">Find a component</span><wired-search-input id="search" placeholder="Find an element…" aria-label="Find a component"></wired-search-input></label></div>
+      <p id="result-count" class="result-count" aria-live="polite"></p>
+      <div id="gallery" class="gallery"></div><p id="empty" hidden>No elements match. Try another name or category.</p>
+      <noscript>Enable JavaScript to explore the live components.</noscript>
+    </section>
+    <section id="getting-started" class="getting-started"><div><p class="eyebrow">FROM SKETCH TO SCREEN</p><h2>Make it your own.</h2><p>Install the collection, import a component, and write a little HTML. Use it with vanilla JavaScript, React, Vue, or any framework that supports web components.</p><wired-link href="https://github.com/node-projects/wired-elements/tree/master/docs">Explore the component API ↗</wired-link></div><div class="quickstart"><p>01 / INSTALL</p><pre><code>npm install @node-projects/wired-elements</code></pre><p>02 / IMPORT &amp; USE</p><pre><code>import '@node-projects/wired-elements/lib/wired-button.js';
+
+&lt;wired-button elevation="2"&gt;
+  Hello, sketchbook.
+&lt;/wired-button&gt;</code></pre></div></section>
+  </main>
+  <footer><span>Wired Elements / node-projects</span><span>Originally created by Preet Shihn · <wired-link href="https://github.com/node-projects/wired-elements/blob/master/LICENSE">MIT License</wired-link></span><wired-link href="#title">Back to top ↑</wired-link></footer>
+  <p id="announcement" class="sr-only" role="status"></p>
+</body>
+</html>
